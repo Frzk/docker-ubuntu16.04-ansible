@@ -15,7 +15,7 @@ RUN apt-get update \
     tzdata \
  && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m pip install --upgrade pip \
+RUN python3 -m pip --disable-pip-version-check --upgrade "pip < 21.0" \
  && python3 -m pip install --upgrade setuptools \
  && python3 -m pip install wheel ansible molecule[docker,lint]
 
